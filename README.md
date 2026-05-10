@@ -87,7 +87,7 @@ both side-by-side, or vendor the script in if you prefer.
   "mcpServers": {
     "android-compose": {
       "command": "bunx",
-      "args": ["@prime-lang/mcp-server-core"],
+      "args": ["@skill-wiki/mcp-server-core"],
       "env": {
         "PRIME_DIR": "/abs/path/to/skill-corpus-android-compose/compiled"
       }
