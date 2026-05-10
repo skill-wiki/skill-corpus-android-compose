@@ -14,7 +14,7 @@ The corpus answers a recurring question for AI agents writing Android
 UI: *what are the rules my Compose code has to follow before an Android
 engineer would call it idiomatic?* The answer is no longer "read these
 three guideline documents and grep the Material 3 docs" — it is "load
-this Skill, follow the rules, avoid the anti-pattern."
+this Prime, follow the rules, avoid the anti-pattern."
 
 ---
 
@@ -38,7 +38,7 @@ Each atom carries source attribution to a specific AndroidX or Material
 
 ## License
 
-This Skill is dual-attributed under permissive licenses:
+This Prime is dual-attributed under permissive licenses:
 
 | Layer | License |
 |---|---|
@@ -103,7 +103,7 @@ otherwise.
 
 ### From the marketplace
 
-After this Skill is registered in
+After this Prime is registered in
 [`skill-wiki/website`](https://github.com/skill-wiki/website)'s
 `data/skills.yaml`, it will appear on the public marketplace.
 
