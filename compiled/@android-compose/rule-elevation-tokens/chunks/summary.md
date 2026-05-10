@@ -1,0 +1,3 @@
+# ElevationTokens [rule] v0.1.0
+Material 3 elevation is expressed via six tokens — `level0` (0dp) through `level5` (12dp) — that map to BOTH a shadow elevation and a tonal-color overlay drawn on top of `surface`. Higher elevations get a stronger primary-tinted overlay, which is how dark mode shows depth without bright shadows. Always pass elevation through Compose Material 3 component params (`elevation = CardDefaults.cardElevation(...)`) or use `Surface(tonalElevation = N.dp, shadowElevation = N.dp)` — never fake depth with `Modifier.shadow(...)` alone, which won't tint the surface and will look wrong in dark mode.
+domain: android-compose

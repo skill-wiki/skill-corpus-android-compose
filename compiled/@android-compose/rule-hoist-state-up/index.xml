@@ -1,0 +1,14 @@
+<atom
+  id="@android-compose/rule-hoist-state-up"
+  kind="rule"
+  version="0.1.0"
+  domain="android-compose"
+  tokens="300"
+  q="4.0">
+  <description>A composable that displays a piece of state should NOT own it. Owning means calling `remember { mutableStateOf(...) }` inside the composable that renders. Instead the composable accepts the value as a parameter and emits change events through a callback. The caller hoists the state to the lowest common ancestor of every composable that needs to read or change it. This makes the component stateless, reusable, testable, and previewable, and lets the caller wire the same component to a ViewModel, a saved state, or a parent composable.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="148"/>
+    <level name="core"    file="chunks/core.md"    tokens="300"/>
+    <level name="full"    file="chunks/full.md"    tokens="320"/>
+  </projection>
+</atom>

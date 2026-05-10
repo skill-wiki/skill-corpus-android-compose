@@ -1,0 +1,32 @@
+// Source: AndroidX Compose Component API Guidelines (Apache-2.0)
+// https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-component-api-guidelines.md#composable-content-lambda-slot-parameters
+
+rule SlotContentViaComposableLambda {
+  id: "@android-compose/rule-slot-content-via-composable-lambda"
+  version: "0.1.0"
+
+  label: "Expose customisable regions as @Composable content lambdas (slots)"
+  domain: android-compose
+
+  description: "When a component has a region the caller might want to customise — header, leading icon, trailing action, body — expose that region as a `@Composable () -> Unit` parameter (a 'slot'), not as a typed config object or a String. The component lays out the slot; the caller fills it with whatever composables it likes. This is how Material 3 components like `Scaffold`, `TopAppBar`, `ListItem`, and `Card` stay flexible without exploding their parameter lists."
+
+  checks: [
+    "Customisable regions are `content: @Composable () -> Unit` (or a typed scope receiver, e.g. `@Composable RowScope.() -> Unit`).",
+    "Multiple slots are named for the region they fill: `title`, `leadingIcon`, `trailingContent`, `bottomBar`, `content`.",
+    "The primary content slot is conventionally named `content` and is the LAST parameter — so callers can use trailing-lambda syntax: `Card { ... }`.",
+    "Slots receive their own scope when geometry context matters (e.g. `RowScope`, `ColumnScope`) so callers can use `Modifier.weight(...)` inside.",
+  ]
+
+  tags: [composable-api, slot-api, content-lambda, flexibility]
+
+  notes: [
+    "A slot-based API is open to the caller's needs; a String/Boolean config API closes them off and forces a v2.",
+    "If a caller would want to put two icons, an animation, or a Lottie in your 'icon' slot, it's a slot — type it `@Composable () -> Unit`, not `painter: Painter`.",
+  ]
+
+  related: [
+    @android-compose/rule-modifier-as-first-optional-param,
+    @android-compose/rule-composable-annotation-not-raw-fn,
+    @android-compose/principle-state-driven-ui,
+  ]
+}

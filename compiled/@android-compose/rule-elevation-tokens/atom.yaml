@@ -1,0 +1,21 @@
+id: "@android-compose/rule-elevation-tokens"
+kind: rule
+version: "0.1.0"
+description: "Material 3 elevation is expressed via six tokens — `level0` (0dp) through `level5` (12dp) — that map to BOTH a shadow elevation and a tonal-color overlay drawn on top of `surface`. Higher elevations get a stronger primary-tinted overlay, which is how dark mode shows depth without bright shadows. Always pass elevation through Compose Material 3 component params (`elevation = CardDefaults.cardElevation(...)`) or use `Surface(tonalElevation = N.dp, shadowElevation = N.dp)` — never fake depth with `Modifier.shadow(...)` alone, which won't tint the surface and will look wrong in dark mode."
+domain: android-compose
+content_hash: "sha256:2270a0e9c527faeb381e6156b9d92c139286c7386d3180b209944b6e5e76eb82"
+tokens:
+  summary: 162
+  core: 352
+  full: 375
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@android-compose/rule-color-roles-not-raw-hex" }
+  - { type: related, target: "@android-compose/rule-typography-scale-tokens" }
+  - { type: related, target: "@android-compose/rule-motion-easing-tokens" }
+created_at: "2026-05-10"

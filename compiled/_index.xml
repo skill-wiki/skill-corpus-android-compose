@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<prime_index version="1.0" total="21" total_tokens="7206">
+  <cluster name="android-compose" density="0.00">
+    <atom id="@android-compose/anti-pattern-side-effects-in-composables" kind="anti-pattern" tokens="427" q="4.0">
+      Putting impure work — `viewModel.fetchUser()`, `analytics.log(&quot;viewed&quot;)`, `scop…
+      <edge type="related" target="@android-compose/principle-recomposition-as-source-of-truth"/>
+      <edge type="related" target="@android-compose/rule-avoid-recomposition-via-remember"/>
+      <edge type="related" target="@android-compose/rule-no-side-effects-in-composables"/>
+    </atom>
+    <atom id="@android-compose/pattern-edge-to-edge-insets" kind="pattern" tokens="487" q="4.0">
+      On Android 15+ activities are edge-to-edge by default — content draws behind th…
+      <edge type="related" target="@android-compose/pattern-predictive-back"/>
+      <edge type="related" target="@android-compose/pattern-responsive-via-window-size-class"/>
+    </atom>
+    <atom id="@android-compose/pattern-predictive-back" kind="pattern" tokens="461" q="4.0">
+      On Android 13+ predictive back lets users peek at the destination during the ba…
+      <edge type="related" target="@android-compose/pattern-edge-to-edge-insets"/>
+      <edge type="related" target="@android-compose/pattern-responsive-via-window-size-class"/>
+    </atom>
+    <atom id="@android-compose/pattern-responsive-via-window-size-class" kind="pattern" tokens="433" q="4.0">
+      Read the current window dimensions through `currentWindowAdaptiveInfo()` and sw…
+      <edge type="related" target="@android-compose/pattern-edge-to-edge-insets"/>
+      <edge type="related" target="@android-compose/pattern-predictive-back"/>
+      <edge type="related" target="@android-compose/principle-state-driven-ui"/>
+    </atom>
+    <atom id="@android-compose/principle-recomposition-as-source-of-truth" kind="principle" tokens="389" q="4.0">
+      Recomposition is the runtime mechanism that keeps the UI consistent with state.…
+      <edge type="related" target="@android-compose/principle-state-driven-ui"/>
+      <edge type="related" target="@android-compose/rule-avoid-recomposition-via-remember"/>
+      <edge type="related" target="@android-compose/rule-no-side-effects-in-composables"/>
+      <edge type="related" target="@android-compose/rule-prefer-stable-keys-in-lazy-column"/>
+    </atom>
+    <atom id="@android-compose/principle-state-driven-ui" kind="principle" tokens="333" q="4.0">
+      The UI is a function of state: `UI = f(state)`. The composable tree describes w…
+      <edge type="related" target="@android-compose/principle-recomposition-as-source-of-truth"/>
+      <edge type="related" target="@android-compose/rule-hoist-state-up"/>
+      <edge type="related" target="@android-compose/rule-no-side-effects-in-composables"/>
+      <edge type="related" target="@android-compose/rule-single-source-of-truth"/>
+    </atom>
+    <atom id="@android-compose/rule-avoid-recomposition-via-remember" kind="rule" tokens="289" q="4.0">
+      A composable&apos;s body re-runs on every recomposition. Anything allocated or compu…
+      <edge type="related" target="@android-compose/principle-recomposition-as-source-of-truth"/>
+      <edge type="related" target="@android-compose/rule-no-side-effects-in-composables"/>
+      <edge type="related" target="@android-compose/rule-prefer-stable-keys-in-lazy-column"/>
+    </atom>
+    <atom id="@android-compose/rule-color-roles-not-raw-hex" kind="rule" tokens="326" q="4.0">
+      Material 3 defines 30+ semantic color *roles* — `primary`, `onPrimary`, `surfac…
+      <edge type="related" target="@android-compose/rule-elevation-tokens"/>
+      <edge type="related" target="@android-compose/rule-motion-easing-tokens"/>
+      <edge type="related" target="@android-compose/rule-typography-scale-tokens"/>
+    </atom>
+    <atom id="@android-compose/rule-composable-annotation-not-raw-fn" kind="rule" tokens="271" q="4.0">
+      A function that emits Compose UI or invokes other @Composable functions must it…
+      <edge type="related" target="@android-compose/principle-recomposition-as-source-of-truth"/>
+      <edge type="related" target="@android-compose/rule-hoist-state-up"/>
+      <edge type="related" target="@android-compose/rule-no-side-effects-in-composables"/>
+    </atom>
+    <atom id="@android-compose/rule-content-description-non-decorative" kind="rule" tokens="325" q="4.0">
+      TalkBack reads `contentDescription` aloud when focusing an image or icon. Every…
+      <edge type="related" target="@android-compose/rule-semantic-tree-via-modifier-semantics"/>
+      <edge type="related" target="@android-compose/rule-touch-target-48dp"/>
+    </atom>
+    <atom id="@android-compose/rule-elevation-tokens" kind="rule" tokens="352" q="4.0">
+      Material 3 elevation is expressed via six tokens — `level0` (0dp) through `leve…
+      <edge type="related" target="@android-compose/rule-color-roles-not-raw-hex"/>
+      <edge type="related" target="@android-compose/rule-motion-easing-tokens"/>
+      <edge type="related" target="@android-compose/rule-typography-scale-tokens"/>
+    </atom>
+    <atom id="@android-compose/rule-hoist-state-up" kind="rule" tokens="300" q="4.0">
+      A composable that displays a piece of state should NOT own it. Owning means cal…
+      <edge type="related" target="@android-compose/principle-recomposition-as-source-of-truth"/>
+      <edge type="related" target="@android-compose/principle-state-driven-ui"/>
+      <edge type="related" target="@android-compose/rule-composable-annotation-not-raw-fn"/>
+      <edge type="related" target="@android-compose/rule-single-source-of-truth"/>
+    </atom>
+    <atom id="@android-compose/rule-modifier-as-first-optional-param" kind="rule" tokens="304" q="4.0">
+      Every component composable that emits layout exposes a `modifier: Modifier = Mo…
+      <edge type="related" target="@android-compose/rule-composable-annotation-not-raw-fn"/>
+      <edge type="related" target="@android-compose/rule-slot-content-via-composable-lambda"/>
+    </atom>
+    <atom id="@android-compose/rule-motion-easing-tokens" kind="rule" tokens="357" q="4.0">
+      Material 3 motion is built on a small set of named easing curves and duration t…
+      <edge type="related" target="@android-compose/rule-color-roles-not-raw-hex"/>
+      <edge type="related" target="@android-compose/rule-elevation-tokens"/>
+      <edge type="related" target="@android-compose/rule-typography-scale-tokens"/>
+    </atom>
+    <atom id="@android-compose/rule-no-side-effects-in-composables" kind="rule" tokens="315" q="4.0">
+      A @Composable function&apos;s body is called by the runtime on a schedule it control…
+      <edge type="related" target="@android-compose/anti-pattern-side-effects-in-composables"/>
+      <edge type="related" target="@android-compose/principle-recomposition-as-source-of-truth"/>
+      <edge type="related" target="@android-compose/rule-avoid-recomposition-via-remember"/>
+    </atom>
+    <atom id="@android-compose/rule-prefer-stable-keys-in-lazy-column" kind="rule" tokens="270" q="4.0">
+      `LazyColumn`, `LazyRow`, and `LazyVerticalGrid` use the `key` parameter on each…
+      <edge type="related" target="@android-compose/principle-recomposition-as-source-of-truth"/>
+      <edge type="related" target="@android-compose/rule-avoid-recomposition-via-remember"/>
+    </atom>
+    <atom id="@android-compose/rule-semantic-tree-via-modifier-semantics" kind="rule" tokens="369" q="4.0">
+      The Compose accessibility tree is what TalkBack and ui-test see. By default it …
+      <edge type="related" target="@android-compose/rule-content-description-non-decorative"/>
+      <edge type="related" target="@android-compose/rule-touch-target-48dp"/>
+    </atom>
+    <atom id="@android-compose/rule-single-source-of-truth" kind="rule" tokens="277" q="4.0">
+      Every value that drives the UI lives in exactly one place — a ViewModel, a reme…
+      <edge type="related" target="@android-compose/anti-pattern-side-effects-in-composables"/>
+      <edge type="related" target="@android-compose/principle-state-driven-ui"/>
+      <edge type="related" target="@android-compose/rule-hoist-state-up"/>
+    </atom>
+    <atom id="@android-compose/rule-slot-content-via-composable-lambda" kind="rule" tokens="294" q="4.0">
+      When a component has a region the caller might want to customise — header, lead…
+      <edge type="related" target="@android-compose/principle-state-driven-ui"/>
+      <edge type="related" target="@android-compose/rule-composable-annotation-not-raw-fn"/>
+      <edge type="related" target="@android-compose/rule-modifier-as-first-optional-param"/>
+    </atom>
+    <atom id="@android-compose/rule-touch-target-48dp" kind="rule" tokens="321" q="4.0">
+      Any element a user can tap, click, or long-press — buttons, icon buttons, list …
+      <edge type="related" target="@android-compose/rule-content-description-non-decorative"/>
+      <edge type="related" target="@android-compose/rule-semantic-tree-via-modifier-semantics"/>
+    </atom>
+    <atom id="@android-compose/rule-typography-scale-tokens" kind="rule" tokens="306" q="4.0">
+      Material 3 defines a 15-step type scale across five role families — `displayLar…
+      <edge type="related" target="@android-compose/rule-color-roles-not-raw-hex"/>
+      <edge type="related" target="@android-compose/rule-elevation-tokens"/>
+      <edge type="related" target="@android-compose/rule-motion-easing-tokens"/>
+    </atom>
+  </cluster>
+</prime_index>

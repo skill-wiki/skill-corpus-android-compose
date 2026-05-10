@@ -1,0 +1,33 @@
+// Source: Material 3 — Elevation (CC-BY 4.0)
+// https://m3.material.io/styles/elevation/tokens
+
+rule ElevationTokens {
+  id: "@android-compose/rule-elevation-tokens"
+  version: "0.1.0"
+
+  label: "Use Material 3 elevation tokens; M3 elevates with surface tone, not shadows alone"
+  domain: android-compose
+
+  description: "Material 3 elevation is expressed via six tokens — `level0` (0dp) through `level5` (12dp) — that map to BOTH a shadow elevation and a tonal-color overlay drawn on top of `surface`. Higher elevations get a stronger primary-tinted overlay, which is how dark mode shows depth without bright shadows. Always pass elevation through Compose Material 3 component params (`elevation = CardDefaults.cardElevation(...)`) or use `Surface(tonalElevation = N.dp, shadowElevation = N.dp)` — never fake depth with `Modifier.shadow(...)` alone, which won't tint the surface and will look wrong in dark mode."
+
+  checks: [
+    "Cards: `Card(elevation = CardDefaults.cardElevation(defaultElevation = 1.dp, ...))` — ship with `level1` resting elevation.",
+    "Top app bars: `TopAppBar(colors = ..., scrollBehavior = ...)` — let the component swap to `level2` on scroll.",
+    "FABs: `FloatingActionButton(elevation = FloatingActionButtonDefaults.elevation())` — defaults are `level3` resting / `level4` pressed.",
+    "Custom containers: `Surface(tonalElevation = 3.dp, shadowElevation = 3.dp)` — keep the two values equal unless you have a specific reason to diverge.",
+    "Do not stack `Modifier.shadow(8.dp)` on a Material container; it doubles the shadow and skips tonal overlay.",
+  ]
+
+  tags: [material3, elevation, tokens, dark-mode, surface]
+
+  notes: [
+    "Tonal elevation is the M3 mechanism for 'lifting' a surface in dark mode without searingly bright shadows; shadow alone disappears against dark backgrounds.",
+    "Levels: 0=0dp, 1=1dp, 2=3dp, 3=6dp, 4=8dp, 5=12dp. The dp value is both shadow blur and the tonal-overlay strength input.",
+  ]
+
+  related: [
+    @android-compose/rule-color-roles-not-raw-hex,
+    @android-compose/rule-typography-scale-tokens,
+    @android-compose/rule-motion-easing-tokens,
+  ]
+}

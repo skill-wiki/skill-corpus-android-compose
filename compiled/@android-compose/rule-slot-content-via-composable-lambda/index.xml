@@ -1,0 +1,14 @@
+<atom
+  id="@android-compose/rule-slot-content-via-composable-lambda"
+  kind="rule"
+  version="0.1.0"
+  domain="android-compose"
+  tokens="294"
+  q="4.0">
+  <description>When a component has a region the caller might want to customise — header, leading icon, trailing action, body — expose that region as a `@Composable () -&gt; Unit` parameter (a &apos;slot&apos;), not as a typed config object or a String. The component lays out the slot; the caller fills it with whatever composables it likes. This is how Material 3 components like `Scaffold`, `TopAppBar`, `ListItem`, and `Card` stay flexible without exploding their parameter lists.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="132"/>
+    <level name="core"    file="chunks/core.md"    tokens="294"/>
+    <level name="full"    file="chunks/full.md"    tokens="313"/>
+  </projection>
+</atom>

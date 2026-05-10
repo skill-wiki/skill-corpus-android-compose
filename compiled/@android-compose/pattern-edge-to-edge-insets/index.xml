@@ -1,0 +1,14 @@
+<atom
+  id="@android-compose/pattern-edge-to-edge-insets"
+  kind="pattern"
+  version="0.1.0"
+  domain="android-compose"
+  tokens="487"
+  q="4.0">
+  <description>On Android 15+ activities are edge-to-edge by default — content draws behind the status bar and navigation bar, all the way to the screen edges. The app must consume the system insets per component so interactive content is not hidden under the bars. Using `Scaffold` or applying `Modifier.windowInsetsPadding(WindowInsets.systemBars)` to specific containers gives the right result; setting a single padding around the whole app reintroduces a black band and defeats the visual.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="135"/>
+    <level name="core"    file="chunks/core.md"    tokens="487"/>
+    <level name="full"    file="chunks/full.md"    tokens="839"/>
+  </projection>
+</atom>

@@ -1,0 +1,32 @@
+// Source: Material 3 — Accessibility (CC-BY 4.0)
+// https://m3.material.io/foundations/accessible-design/accessibility-basics
+
+rule TouchTarget48dp {
+  id: "@android-compose/rule-touch-target-48dp"
+  version: "0.1.0"
+
+  label: "Every interactive element has a minimum 48x48 dp touch target"
+  domain: android-compose
+
+  description: "Any element a user can tap, click, or long-press — buttons, icon buttons, list rows, switches, links — must have a hit area of at least 48 dp by 48 dp. This is both a Material 3 baseline and a platform accessibility requirement (WCAG 2.5.5). The visual element may be smaller (e.g. a 24 dp icon), but the surrounding tappable region must reach 48 dp via padding, `Modifier.minimumInteractiveComponentSize()`, or component defaults."
+
+  checks: [
+    "Material 3 components (`IconButton`, `Switch`, `Checkbox`, `RadioButton`) ship with a built-in 48 dp hit slop — do NOT shrink them with `Modifier.size(...)` smaller than 48 dp.",
+    "Custom `Modifier.clickable` regions wrap the visual at minimum 48 dp: `Modifier.size(48.dp).clickable { ... }` or add padding around a smaller icon.",
+    "Use `Modifier.minimumInteractiveComponentSize()` on a Composable that should expand to the platform-mandated minimum.",
+    "Adjacent tappable rows in a list have ≥ 8 dp spacing OR distinct full-width tap regions so the user does not mis-tap.",
+    "Verify with the Compose UI testing API: `onNodeWithText(\"...\").assertHeightIsAtLeast(48.dp).assertWidthIsAtLeast(48.dp)`.",
+  ]
+
+  tags: [accessibility, touch-target, motor-accessibility, wcag]
+
+  notes: [
+    "Tablet and watch surfaces have different minimums (Wear OS guidance is smaller, but 48 dp on phone is non-negotiable).",
+    "If you intentionally show a 24 dp visual icon and want a 48 dp hit slop, clip the visual but keep the parent box at 48 dp; don't shrink the parent.",
+  ]
+
+  related: [
+    @android-compose/rule-content-description-non-decorative,
+    @android-compose/rule-semantic-tree-via-modifier-semantics,
+  ]
+}

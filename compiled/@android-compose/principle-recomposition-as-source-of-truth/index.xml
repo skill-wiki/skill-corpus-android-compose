@@ -1,0 +1,14 @@
+<atom
+  id="@android-compose/principle-recomposition-as-source-of-truth"
+  kind="principle"
+  version="0.1.0"
+  domain="android-compose"
+  tokens="389"
+  q="4.0">
+  <description>Recomposition is the runtime mechanism that keeps the UI consistent with state. When a snapshot read inside a composable changes, the runtime invalidates that scope and re-runs it. Recomposition can happen at any time, in any order, often, and may be cancelled mid-way. Code that assumes a composable runs &apos;once&apos; or &apos;exactly when the user pressed the button&apos; is wrong; the only contract is &apos;the body returns the latest projection of inputs to UI&apos;.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="221"/>
+    <level name="core"    file="chunks/core.md"    tokens="389"/>
+    <level name="full"    file="chunks/full.md"    tokens="389"/>
+  </projection>
+</atom>

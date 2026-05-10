@@ -1,0 +1,8 @@
+atom: "@android-compose/rule-slot-content-via-composable-lambda"
+relations:
+  - type: related
+    target: "@android-compose/rule-modifier-as-first-optional-param"
+  - type: related
+    target: "@android-compose/rule-composable-annotation-not-raw-fn"
+  - type: related
+    target: "@android-compose/principle-state-driven-ui"

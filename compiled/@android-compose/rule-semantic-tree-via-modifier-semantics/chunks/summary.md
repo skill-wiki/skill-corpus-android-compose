@@ -1,0 +1,3 @@
+# SemanticTreeViaModifierSemantics [rule] v0.1.0
+The Compose accessibility tree is what TalkBack and ui-test see. By default it mirrors the composable tree, but custom widgets, merged groupings, and dynamic state often need explicit shaping via `Modifier.semantics { }` and `Modifier.clearAndSetSemantics { }`. Set roles (Button, Switch, Heading), state (`stateDescription`, `selected`, `toggleableState`), labels (`contentDescription`, `text`), and relationships (`liveRegion`, `error`, `traversalIndex`). Do NOT control screen-reader output by hiding views with `alpha(0f)` or by cramming everything into one giant contentDescription.
+domain: android-compose

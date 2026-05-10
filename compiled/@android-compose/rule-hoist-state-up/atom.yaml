@@ -1,0 +1,22 @@
+id: "@android-compose/rule-hoist-state-up"
+kind: rule
+version: "0.1.0"
+description: "A composable that displays a piece of state should NOT own it. Owning means calling `remember { mutableStateOf(...) }` inside the composable that renders. Instead the composable accepts the value as a parameter and emits change events through a callback. The caller hoists the state to the lowest common ancestor of every composable that needs to read or change it. This makes the component stateless, reusable, testable, and previewable, and lets the caller wire the same component to a ViewModel, a saved state, or a parent composable."
+domain: android-compose
+content_hash: "sha256:d09a898574cf556601e254ba28b246237623d855a15c8989b99d3d931e8fe523"
+tokens:
+  summary: 148
+  core: 300
+  full: 320
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@android-compose/rule-single-source-of-truth" }
+  - { type: related, target: "@android-compose/rule-composable-annotation-not-raw-fn" }
+  - { type: related, target: "@android-compose/principle-state-driven-ui" }
+  - { type: related, target: "@android-compose/principle-recomposition-as-source-of-truth" }
+created_at: "2026-05-10"

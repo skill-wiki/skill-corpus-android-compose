@@ -1,0 +1,14 @@
+<atom
+  id="@android-compose/principle-state-driven-ui"
+  kind="principle"
+  version="0.1.0"
+  domain="android-compose"
+  tokens="333"
+  q="4.0">
+  <description>The UI is a function of state: `UI = f(state)`. The composable tree describes what the screen looks like for the current state value; it does not imperatively mutate views to reach that state. To change the screen, mutate the state and let Compose re-derive the tree. The agent never holds a reference to a `Button` and calls `setEnabled(false)` on it — instead, `enabled` is a piece of state that the button reads at composition time.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="196"/>
+    <level name="core"    file="chunks/core.md"    tokens="333"/>
+    <level name="full"    file="chunks/full.md"    tokens="333"/>
+  </projection>
+</atom>

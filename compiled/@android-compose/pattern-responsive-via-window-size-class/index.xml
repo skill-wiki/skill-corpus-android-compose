@@ -1,0 +1,14 @@
+<atom
+  id="@android-compose/pattern-responsive-via-window-size-class"
+  kind="pattern"
+  version="0.1.0"
+  domain="android-compose"
+  tokens="433"
+  q="4.0">
+  <description>Read the current window dimensions through `currentWindowAdaptiveInfo()` and switch layout topology by `WindowWidthSizeClass` (Compact / Medium / Expanded) and `WindowHeightSizeClass`. Compact = phone portrait (1-pane). Medium = unfolded foldable / small tablet (1.5-pane or list-detail). Expanded = tablet / desktop / large foldable (2-pane or 3-pane). Don&apos;t write `if (configuration.screenWidthDp &gt; 600)`-style breakpoints — that hard-codes thresholds the platform may revise and ignores the proper API.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="145"/>
+    <level name="core"    file="chunks/core.md"    tokens="433"/>
+    <level name="full"    file="chunks/full.md"    tokens="721"/>
+  </projection>
+</atom>

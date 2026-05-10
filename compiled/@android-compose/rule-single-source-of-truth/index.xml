@@ -1,0 +1,14 @@
+<atom
+  id="@android-compose/rule-single-source-of-truth"
+  kind="rule"
+  version="0.1.0"
+  domain="android-compose"
+  tokens="277"
+  q="4.0">
+  <description>Every value that drives the UI lives in exactly one place — a ViewModel, a remembered state holder, or a state-hoisted parameter. Composables read it and emit it. They do NOT copy it into a second `remember { mutableStateOf(...) }` they then keep in sync with the original via LaunchedEffect. Two copies of the same fact will drift the moment the synchronisation code has a bug, and you cannot tell which is correct.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="119"/>
+    <level name="core"    file="chunks/core.md"    tokens="277"/>
+    <level name="full"    file="chunks/full.md"    tokens="297"/>
+  </projection>
+</atom>

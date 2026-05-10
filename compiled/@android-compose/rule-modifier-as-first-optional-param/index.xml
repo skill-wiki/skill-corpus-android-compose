@@ -1,0 +1,14 @@
+<atom
+  id="@android-compose/rule-modifier-as-first-optional-param"
+  kind="rule"
+  version="0.1.0"
+  domain="android-compose"
+  tokens="304"
+  q="4.0">
+  <description>Every component composable that emits layout exposes a `modifier: Modifier = Modifier` parameter. It comes after all required parameters and before all other optional ones. The modifier is applied to the ROOT element of the component&apos;s emitted layout — never to an inner child. This convention lets the caller adjust size, padding, click behaviour, semantics, or test tags from the outside without the component having to anticipate every possible adjustment.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="132"/>
+    <level name="core"    file="chunks/core.md"    tokens="304"/>
+    <level name="full"    file="chunks/full.md"    tokens="322"/>
+  </projection>
+</atom>

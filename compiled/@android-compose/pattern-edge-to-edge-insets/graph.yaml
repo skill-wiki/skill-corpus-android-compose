@@ -1,0 +1,6 @@
+atom: "@android-compose/pattern-edge-to-edge-insets"
+relations:
+  - type: related
+    target: "@android-compose/pattern-responsive-via-window-size-class"
+  - type: related
+    target: "@android-compose/pattern-predictive-back"

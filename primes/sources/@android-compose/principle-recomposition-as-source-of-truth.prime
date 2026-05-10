@@ -1,0 +1,35 @@
+// Source: AndroidX Compose API Guidelines — Recomposition (Apache-2.0)
+// https://developer.android.com/develop/ui/compose/mental-model#recomposition
+
+principle RecompositionAsSourceOfTruth {
+  id: "@android-compose/principle-recomposition-as-source-of-truth"
+  version: "0.1.0"
+
+  domain: android-compose
+
+  description: "Recomposition is the runtime mechanism that keeps the UI consistent with state. When a snapshot read inside a composable changes, the runtime invalidates that scope and re-runs it. Recomposition can happen at any time, in any order, often, and may be cancelled mid-way. Code that assumes a composable runs 'once' or 'exactly when the user pressed the button' is wrong; the only contract is 'the body returns the latest projection of inputs to UI'."
+
+  statement: "Recomposition is the source of truth, not the developer's intuitions about call frequency. Design every composable so that running it 1 time, 100 times, or being aborted at line 7 all produce identical user-visible behaviour. Side effects, expensive allocations, and impure operations belong outside the composition path (effect APIs, `remember`, ViewModel)."
+
+  tags: [principles, recomposition, runtime, purity]
+
+  applies-to: [
+    "Frequency: assume a composable body runs hundreds of times per user interaction during animations or when typing in a TextField it observes.",
+    "Order: assume sibling composables run in arbitrary order; do NOT use one's body to set up state another reads.",
+    "Cancellation: assume a composition can be aborted; never observe partial work.",
+    "Stability: types Compose can compare with `==` skip recomposition when inputs are equal — annotate state holders `@Stable` / `@Immutable` to enable that skipping.",
+    "Reading: only state read inside a composable causes its recomposition; don't 'optimise' by passing state through plain references that bypass snapshots.",
+  ]
+
+  notes: [
+    "This principle explains every other rule in the corpus — state hoisting, side-effect APIs, remember, derivedStateOf, lazy keys — they are all consequences of recomposition's contract.",
+    "The Layout Inspector and Compose Compiler reports surface stability and recomposition counts; lean on them when a screen feels slow.",
+  ]
+
+  related: [
+    @android-compose/principle-state-driven-ui,
+    @android-compose/rule-avoid-recomposition-via-remember,
+    @android-compose/rule-no-side-effects-in-composables,
+    @android-compose/rule-prefer-stable-keys-in-lazy-column,
+  ]
+}

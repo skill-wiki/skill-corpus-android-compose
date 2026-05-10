@@ -1,0 +1,58 @@
+# Skill pack manifest — @android-compose
+#
+# This file declares the Skill identity, version, and pack metadata that
+# the marketplace and Prime CLI consume. Atom files live in primes/ and
+# emit to compiled/ (see README for build instructions).
+
+prime-version: "1.0"
+name: "@android-compose"
+version: "0.1.0"
+description: >
+  Jetpack Compose component API guidelines and Material 3 design tokens
+  distilled into typed Prime atoms — composable function shape, state
+  hoisting, modifiers, slots, recomposition, lazy lists, Material 3 token
+  roles, accessibility, and adaptive layout patterns. Starter seed set;
+  intended to grow.
+
+license: Apache-2.0
+homepage: https://github.com/skill-wiki/skill-corpus-android-compose
+repository: https://github.com/skill-wiki/skill-corpus-android-compose
+maintainers:
+  - skill-wiki
+
+# Source corpora — see LICENSE for full attribution.
+sources:
+  - title: AndroidX Jetpack Compose — API Guidelines
+    url: https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-api-guidelines.md
+    license: Apache-2.0
+  - title: AndroidX Jetpack Compose — Component API Guidelines
+    url: https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-component-api-guidelines.md
+    license: Apache-2.0
+  - title: Material 3 Design Documentation
+    url: https://m3.material.io/
+    license: CC-BY-4.0
+  - title: Material 3 Compose Library
+    url: https://github.com/androidx/androidx/tree/androidx-main/compose/material3
+    license: Apache-2.0
+
+# Atom layout
+primes-dir: primes
+compiled-dir: compiled
+
+tags:
+  - android
+  - jetpack-compose
+  - compose
+  - material3
+  - material-design
+  - kotlin
+  - mobile
+  - ui
+  - frontend
+  - design-tokens
+  - accessibility
+  - state-hoisting
+  - recomposition
+  - modifier
+  - lazy-column
+  - window-size-class

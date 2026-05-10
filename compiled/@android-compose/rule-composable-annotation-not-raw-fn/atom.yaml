@@ -1,0 +1,21 @@
+id: "@android-compose/rule-composable-annotation-not-raw-fn"
+kind: rule
+version: "0.1.0"
+description: "A function that emits Compose UI or invokes other @Composable functions must itself be marked @Composable. The annotation is a contract — it tells the compiler this function may only be called from another composable scope, may participate in recomposition, and reads CompositionLocals. Calling a composable from a non-composable site is a compile error; writing UI logic in a plain `fun` discards the contract and will not compile when it tries to emit content."
+domain: android-compose
+content_hash: "sha256:01ec66dac195128216ee4925fd51d672e66426bfcfdf407b5a8e9004a9e4c2ea"
+tokens:
+  summary: 133
+  core: 271
+  full: 291
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@android-compose/rule-hoist-state-up" }
+  - { type: related, target: "@android-compose/rule-no-side-effects-in-composables" }
+  - { type: related, target: "@android-compose/principle-recomposition-as-source-of-truth" }
+created_at: "2026-05-10"

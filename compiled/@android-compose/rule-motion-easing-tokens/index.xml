@@ -1,0 +1,14 @@
+<atom
+  id="@android-compose/rule-motion-easing-tokens"
+  kind="rule"
+  version="0.1.0"
+  domain="android-compose"
+  tokens="357"
+  q="4.0">
+  <description>Material 3 motion is built on a small set of named easing curves and duration tokens — `MotionTokens.EasingEmphasizedCubicBezier`, `EasingStandardCubicBezier`, durations `Short1` (50 ms) through `ExtraLong4` (1000 ms). Two curves cover most cases: *emphasised* (defaults for outgoing/incoming UI elements; expressive accel/decel) and *standard* (small reversible state changes). Picking custom cubic-bezier values per animation creates inconsistency; using the OS Animator default (`FastOutSlowIn`) ignores M3 expressiveness.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="146"/>
+    <level name="core"    file="chunks/core.md"    tokens="357"/>
+    <level name="full"    file="chunks/full.md"    tokens="376"/>
+  </projection>
+</atom>

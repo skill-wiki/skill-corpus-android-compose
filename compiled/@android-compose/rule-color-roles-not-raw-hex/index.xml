@@ -1,0 +1,14 @@
+<atom
+  id="@android-compose/rule-color-roles-not-raw-hex"
+  kind="rule"
+  version="0.1.0"
+  domain="android-compose"
+  tokens="326"
+  q="4.0">
+  <description>Material 3 defines 30+ semantic color *roles* — `primary`, `onPrimary`, `surface`, `onSurfaceVariant`, `error`, `outline`, etc. — exposed in Compose as `MaterialTheme.colorScheme.&lt;role&gt;`. Components and screens reference roles. The role-to-hex mapping lives in the theme and changes between light/dark, dynamic-color (Material You), high-contrast, and per-app brand schemes. Hard-coding a hex value bypasses every one of those swaps and breaks the moment a user toggles dark mode or dynamic color.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="140"/>
+    <level name="core"    file="chunks/core.md"    tokens="326"/>
+    <level name="full"    file="chunks/full.md"    tokens="343"/>
+  </projection>
+</atom>

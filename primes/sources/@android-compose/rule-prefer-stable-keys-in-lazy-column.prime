@@ -1,0 +1,31 @@
+// Source: AndroidX Compose Foundation — LazyColumn (Apache-2.0)
+// https://developer.android.com/develop/ui/compose/lists#item-keys
+
+rule PreferStableKeysInLazyColumn {
+  id: "@android-compose/rule-prefer-stable-keys-in-lazy-column"
+  version: "0.1.0"
+
+  label: "Pass stable, unique `key` to LazyColumn / LazyRow items"
+  domain: android-compose
+
+  description: "`LazyColumn`, `LazyRow`, and `LazyVerticalGrid` use the `key` parameter on each item to identify it across recompositions. Without a key, Compose falls back to position — which means inserting at the head re-keys every following item, animations break, scroll position drifts, and per-item state (like a remembered expand flag) jumps to the wrong row. Pass a `key = { item -> item.id }` whose value is stable for the lifetime of that item."
+
+  checks: [
+    "Every `items(...)` and `itemsIndexed(...)` call has an explicit `key = { ... }` lambda when the list is mutable or paginated.",
+    "Keys are unique within the list and stable across reorderings (typically a primary-key id from the data model).",
+    "Keys are NOT the index, NOT the hashCode of the whole item, NOT a randomly generated value at composition time.",
+    "Keys are types Compose treats as Saveable (Int, Long, String, parcelable) so list state survives configuration change.",
+  ]
+
+  tags: [lazy-list, performance, recomposition, keys]
+
+  notes: [
+    "Using the index as a key is equivalent to having no key — the moment you insert at the top, every key changes.",
+    "When items can change identity (e.g. an optimistic insert replaced by the server's id), prefer a client-generated UUID at create time and keep it through the swap.",
+  ]
+
+  related: [
+    @android-compose/rule-avoid-recomposition-via-remember,
+    @android-compose/principle-recomposition-as-source-of-truth,
+  ]
+}

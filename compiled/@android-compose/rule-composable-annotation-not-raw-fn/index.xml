@@ -1,0 +1,14 @@
+<atom
+  id="@android-compose/rule-composable-annotation-not-raw-fn"
+  kind="rule"
+  version="0.1.0"
+  domain="android-compose"
+  tokens="271"
+  q="4.0">
+  <description>A function that emits Compose UI or invokes other @Composable functions must itself be marked @Composable. The annotation is a contract — it tells the compiler this function may only be called from another composable scope, may participate in recomposition, and reads CompositionLocals. Calling a composable from a non-composable site is a compile error; writing UI logic in a plain `fun` discards the contract and will not compile when it tries to emit content.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="133"/>
+    <level name="core"    file="chunks/core.md"    tokens="271"/>
+    <level name="full"    file="chunks/full.md"    tokens="291"/>
+  </projection>
+</atom>

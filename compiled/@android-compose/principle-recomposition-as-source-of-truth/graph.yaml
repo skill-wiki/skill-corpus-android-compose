@@ -1,0 +1,10 @@
+atom: "@android-compose/principle-recomposition-as-source-of-truth"
+relations:
+  - type: related
+    target: "@android-compose/principle-state-driven-ui"
+  - type: related
+    target: "@android-compose/rule-avoid-recomposition-via-remember"
+  - type: related
+    target: "@android-compose/rule-no-side-effects-in-composables"
+  - type: related
+    target: "@android-compose/rule-prefer-stable-keys-in-lazy-column"

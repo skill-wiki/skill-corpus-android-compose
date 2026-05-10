@@ -1,0 +1,32 @@
+// Source: AndroidX Compose Foundation — Accessibility (Apache-2.0)
+// https://developer.android.com/develop/ui/compose/accessibility
+
+rule ContentDescriptionNonDecorative {
+  id: "@android-compose/rule-content-description-non-decorative"
+  version: "0.1.0"
+
+  label: "Non-decorative images/icons get a contentDescription; decorative ones get null"
+  domain: android-compose
+
+  description: "TalkBack reads `contentDescription` aloud when focusing an image or icon. Every non-decorative visual that conveys information OR is the only label for an action must have a non-empty `contentDescription`. Purely decorative visuals (a divider flourish, a background pattern) must pass `contentDescription = null` so TalkBack skips them and does not read meaningless 'image' announcements. The choice is binary and required: passing the default `\"\"` (empty string) is a bug."
+
+  checks: [
+    "`Image(painter, contentDescription = \"User avatar for $userName\")` for informational images.",
+    "`Image(painter, contentDescription = null)` for decorative-only visuals.",
+    "`IconButton(onClick = { ... }) { Icon(Icons.Default.Delete, contentDescription = \"Delete item\") }` — the icon is the action label, so it MUST be described.",
+    "When an icon sits NEXT TO a Text label (e.g. a labelled button), the icon is decorative — `contentDescription = null` — so TalkBack does not announce the same word twice.",
+    "Descriptions are user-facing strings from a localised resource (`stringResource(R.string.delete_item)`), not hard-coded English.",
+  ]
+
+  tags: [accessibility, screen-reader, content-description, talkback]
+
+  notes: [
+    "Compose's lint will flag missing contentDescription on Image/Icon. Don't suppress it; decide and pass `null` explicitly if decorative.",
+    "Avoid prefixing descriptions with 'Image of' or 'Icon showing' — TalkBack already announces the role.",
+  ]
+
+  related: [
+    @android-compose/rule-touch-target-48dp,
+    @android-compose/rule-semantic-tree-via-modifier-semantics,
+  ]
+}

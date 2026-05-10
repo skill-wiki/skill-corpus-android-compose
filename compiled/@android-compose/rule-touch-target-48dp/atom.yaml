@@ -1,0 +1,20 @@
+id: "@android-compose/rule-touch-target-48dp"
+kind: rule
+version: "0.1.0"
+description: "Any element a user can tap, click, or long-press — buttons, icon buttons, list rows, switches, links — must have a hit area of at least 48 dp by 48 dp. This is both a Material 3 baseline and a platform accessibility requirement (WCAG 2.5.5). The visual element may be smaller (e.g. a 24 dp icon), but the surrounding tappable region must reach 48 dp via padding, `Modifier.minimumInteractiveComponentSize()`, or component defaults."
+domain: android-compose
+content_hash: "sha256:790448dc304ff7624f5e0eefbcd20c795bc7a455307da84a8a0f2527302005c7"
+tokens:
+  summary: 122
+  core: 321
+  full: 339
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@android-compose/rule-content-description-non-decorative" }
+  - { type: related, target: "@android-compose/rule-semantic-tree-via-modifier-semantics" }
+created_at: "2026-05-10"

@@ -1,0 +1,14 @@
+<atom
+  id="@android-compose/pattern-predictive-back"
+  kind="pattern"
+  version="0.1.0"
+  domain="android-compose"
+  tokens="461"
+  q="4.0">
+  <description>On Android 13+ predictive back lets users peek at the destination during the back-gesture: as the user drags from the screen edge, the OS shows a preview of where they&apos;ll land. If the app intercepts back via the legacy `OnBackPressedCallback` synchronously, the gesture loses its preview animation. Use `PredictiveBackHandler` (compose-foundation 1.7+) or Compose Navigation&apos;s built-in support — both wire into the gesture progress so screen content can animate as the user drags.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="135"/>
+    <level name="core"    file="chunks/core.md"    tokens="461"/>
+    <level name="full"    file="chunks/full.md"    tokens="787"/>
+  </projection>
+</atom>

@@ -1,0 +1,14 @@
+<atom
+  id="@android-compose/rule-typography-scale-tokens"
+  kind="rule"
+  version="0.1.0"
+  domain="android-compose"
+  tokens="306"
+  q="4.0">
+  <description>Material 3 defines a 15-step type scale across five role families — `displayLarge/Medium/Small`, `headlineLarge/Medium/Small`, `titleLarge/Medium/Small`, `bodyLarge/Medium/Small`, `labelLarge/Medium/Small` — exposed as `MaterialTheme.typography.&lt;role&gt;`. Reference the role; do not set `fontSize`, `fontWeight`, `lineHeight`, and `letterSpacing` ad hoc. Roles encode hierarchy, density, and accessibility-tested defaults; ad hoc styles drift across screens and break Dynamic Type.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="136"/>
+    <level name="core"    file="chunks/core.md"    tokens="306"/>
+    <level name="full"    file="chunks/full.md"    tokens="325"/>
+  </projection>
+</atom>

@@ -1,0 +1,34 @@
+// Source: AndroidX Compose Component API Guidelines (Apache-2.0)
+// https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-component-api-guidelines.md
+
+rule HoistStateUp {
+  id: "@android-compose/rule-hoist-state-up"
+  version: "0.1.0"
+
+  label: "Hoist state to the lowest common ancestor; pass value-down, event-up"
+  domain: android-compose
+
+  description: "A composable that displays a piece of state should NOT own it. Owning means calling `remember { mutableStateOf(...) }` inside the composable that renders. Instead the composable accepts the value as a parameter and emits change events through a callback. The caller hoists the state to the lowest common ancestor of every composable that needs to read or change it. This makes the component stateless, reusable, testable, and previewable, and lets the caller wire the same component to a ViewModel, a saved state, or a parent composable."
+
+  checks: [
+    "Components take `value: T` and `onValueChange: (T) -> Unit` parameters; they do not own their displayed state internally.",
+    "If a `remember { mutableStateOf(...) }` lives inside a reusable component, audit it — it likely belongs hoisted up.",
+    "Stateful wrappers exist as a convenience overload that internally creates the state and forwards to the stateless implementation; both ship.",
+    "Previews can render every interesting state by passing different `value` parameters — no need to drive interaction.",
+  ]
+
+  tags: [state, hoisting, composable-api, reusability]
+
+  notes: [
+    "Pattern from React's controlled-vs-uncontrolled split, formalised in Compose as 'state hoisting'.",
+    "The lowest common ancestor rule prevents both over-hoisting (state at the root of the app) and under-hoisting (state trapped where a sibling can't see it).",
+    "When in doubt, hoist further up — moving state down later is cheap; moving it up later requires changing every signature in between.",
+  ]
+
+  related: [
+    @android-compose/rule-single-source-of-truth,
+    @android-compose/rule-composable-annotation-not-raw-fn,
+    @android-compose/principle-state-driven-ui,
+    @android-compose/principle-recomposition-as-source-of-truth,
+  ]
+}

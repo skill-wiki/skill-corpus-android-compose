@@ -1,0 +1,6 @@
+atom: "@android-compose/rule-prefer-stable-keys-in-lazy-column"
+relations:
+  - type: related
+    target: "@android-compose/rule-avoid-recomposition-via-remember"
+  - type: related
+    target: "@android-compose/principle-recomposition-as-source-of-truth"

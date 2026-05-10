@@ -1,0 +1,6 @@
+atom: "@android-compose/rule-content-description-non-decorative"
+relations:
+  - type: related
+    target: "@android-compose/rule-touch-target-48dp"
+  - type: related
+    target: "@android-compose/rule-semantic-tree-via-modifier-semantics"

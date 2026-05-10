@@ -1,0 +1,22 @@
+id: "@android-compose/principle-state-driven-ui"
+kind: principle
+version: "0.1.0"
+description: "The UI is a function of state: `UI = f(state)`. The composable tree describes what the screen looks like for the current state value; it does not imperatively mutate views to reach that state. To change the screen, mutate the state and let Compose re-derive the tree. The agent never holds a reference to a `Button` and calls `setEnabled(false)` on it — instead, `enabled` is a piece of state that the button reads at composition time."
+domain: android-compose
+content_hash: "sha256:405fb7b3c67efbd383ea4c82b3bdd6c966b06387eee14f1092253dd802ef4e14"
+tokens:
+  summary: 196
+  core: 333
+  full: 333
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@android-compose/principle-recomposition-as-source-of-truth" }
+  - { type: related, target: "@android-compose/rule-hoist-state-up" }
+  - { type: related, target: "@android-compose/rule-single-source-of-truth" }
+  - { type: related, target: "@android-compose/rule-no-side-effects-in-composables" }
+created_at: "2026-05-10"

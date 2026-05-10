@@ -1,0 +1,8 @@
+atom: "@android-compose/rule-single-source-of-truth"
+relations:
+  - type: related
+    target: "@android-compose/rule-hoist-state-up"
+  - type: related
+    target: "@android-compose/principle-state-driven-ui"
+  - type: related
+    target: "@android-compose/anti-pattern-side-effects-in-composables"

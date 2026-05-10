@@ -1,0 +1,20 @@
+id: "@android-compose/rule-modifier-as-first-optional-param"
+kind: rule
+version: "0.1.0"
+description: "Every component composable that emits layout exposes a `modifier: Modifier = Modifier` parameter. It comes after all required parameters and before all other optional ones. The modifier is applied to the ROOT element of the component's emitted layout — never to an inner child. This convention lets the caller adjust size, padding, click behaviour, semantics, or test tags from the outside without the component having to anticipate every possible adjustment."
+domain: android-compose
+content_hash: "sha256:471a082f1f5c3c2d71bef34f25b5b53125666fd8184d6c047bb1af1f833203d5"
+tokens:
+  summary: 132
+  core: 304
+  full: 322
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@android-compose/rule-slot-content-via-composable-lambda" }
+  - { type: related, target: "@android-compose/rule-composable-annotation-not-raw-fn" }
+created_at: "2026-05-10"

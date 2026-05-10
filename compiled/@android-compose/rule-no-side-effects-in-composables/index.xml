@@ -1,0 +1,14 @@
+<atom
+  id="@android-compose/rule-no-side-effects-in-composables"
+  kind="rule"
+  version="0.1.0"
+  domain="android-compose"
+  tokens="315"
+  q="4.0">
+  <description>A @Composable function&apos;s body is called by the runtime on a schedule it controls — many times per second during animations, possibly with stale snapshots, possibly aborted half-way. The body must therefore be a pure function of its inputs and remembered state. Anything that touches the world — network calls, navigation, analytics events, mutating ViewModel state, registering listeners — goes inside a controlled effect: `LaunchedEffect`, `DisposableEffect`, `SideEffect`, or `rememberCoroutineScope`.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="143"/>
+    <level name="core"    file="chunks/core.md"    tokens="315"/>
+    <level name="full"    file="chunks/full.md"    tokens="334"/>
+  </projection>
+</atom>

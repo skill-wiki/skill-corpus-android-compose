@@ -1,0 +1,33 @@
+// Source: Material 3 — Typography (CC-BY 4.0)
+// https://m3.material.io/styles/typography/type-scale-tokens
+
+rule TypographyScaleTokens {
+  id: "@android-compose/rule-typography-scale-tokens"
+  version: "0.1.0"
+
+  label: "Use Material 3 type scale roles (display/headline/title/body/label)"
+  domain: android-compose
+
+  description: "Material 3 defines a 15-step type scale across five role families — `displayLarge/Medium/Small`, `headlineLarge/Medium/Small`, `titleLarge/Medium/Small`, `bodyLarge/Medium/Small`, `labelLarge/Medium/Small` — exposed as `MaterialTheme.typography.<role>`. Reference the role; do not set `fontSize`, `fontWeight`, `lineHeight`, and `letterSpacing` ad hoc. Roles encode hierarchy, density, and accessibility-tested defaults; ad hoc styles drift across screens and break Dynamic Type."
+
+  checks: [
+    "Text styles come from `MaterialTheme.typography.<role>` passed via `Text(text, style = ...)`.",
+    "Screen titles use `titleLarge` or `headlineSmall` depending on prominence; do not invent 24sp+bold yourself.",
+    "Body copy uses `bodyLarge` (default reading text) or `bodyMedium`; captions and metadata use `bodySmall` or `labelSmall`.",
+    "Buttons inherit `labelLarge` from `Button` defaults; don't override with custom sp values.",
+    "Custom typography overrides happen by replacing the `Typography` in the `MaterialTheme(...)` setup, not by passing inline `TextStyle` everywhere.",
+  ]
+
+  tags: [material3, typography, tokens, accessibility]
+
+  notes: [
+    "Roles use sp units which respect the user's OS font-size setting; hard-coded sp inside an inline TextStyle still respects sp scaling, but using a role keeps your hierarchy consistent across screens.",
+    "For brand display fonts, swap the FontFamily inside the theme's Typography object once; every role inherits.",
+  ]
+
+  related: [
+    @android-compose/rule-color-roles-not-raw-hex,
+    @android-compose/rule-elevation-tokens,
+    @android-compose/rule-motion-easing-tokens,
+  ]
+}

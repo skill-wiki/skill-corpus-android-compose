@@ -1,0 +1,21 @@
+id: "@android-compose/rule-single-source-of-truth"
+kind: rule
+version: "0.1.0"
+description: "Every value that drives the UI lives in exactly one place — a ViewModel, a remembered state holder, or a state-hoisted parameter. Composables read it and emit it. They do NOT copy it into a second `remember { mutableStateOf(...) }` they then keep in sync with the original via LaunchedEffect. Two copies of the same fact will drift the moment the synchronisation code has a bug, and you cannot tell which is correct."
+domain: android-compose
+content_hash: "sha256:406c351994a19efb290610bb2939fd072578b6dca9e95f6846f587b0848bbcc3"
+tokens:
+  summary: 119
+  core: 277
+  full: 297
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@android-compose/rule-hoist-state-up" }
+  - { type: related, target: "@android-compose/principle-state-driven-ui" }
+  - { type: related, target: "@android-compose/anti-pattern-side-effects-in-composables" }
+created_at: "2026-05-10"

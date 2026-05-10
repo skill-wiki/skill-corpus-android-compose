@@ -1,0 +1,14 @@
+<atom
+  id="@android-compose/anti-pattern-side-effects-in-composables"
+  kind="anti-pattern"
+  version="0.1.0"
+  domain="android-compose"
+  tokens="427"
+  q="4.0">
+  <description>Putting impure work — `viewModel.fetchUser()`, `analytics.log(&quot;viewed&quot;)`, `scope.launch { ... }`, or `someState.value = computed` — at the top level of a @Composable function, where it executes on every recomposition rather than inside a controlled effect API.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="84"/>
+    <level name="core"    file="chunks/core.md"    tokens="427"/>
+    <level name="full"    file="chunks/full.md"    tokens="771"/>
+  </projection>
+</atom>

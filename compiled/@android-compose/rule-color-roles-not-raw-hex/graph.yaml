@@ -1,0 +1,8 @@
+atom: "@android-compose/rule-color-roles-not-raw-hex"
+relations:
+  - type: related
+    target: "@android-compose/rule-typography-scale-tokens"
+  - type: related
+    target: "@android-compose/rule-elevation-tokens"
+  - type: related
+    target: "@android-compose/rule-motion-easing-tokens"

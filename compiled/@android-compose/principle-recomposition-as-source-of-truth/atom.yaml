@@ -1,0 +1,22 @@
+id: "@android-compose/principle-recomposition-as-source-of-truth"
+kind: principle
+version: "0.1.0"
+description: "Recomposition is the runtime mechanism that keeps the UI consistent with state. When a snapshot read inside a composable changes, the runtime invalidates that scope and re-runs it. Recomposition can happen at any time, in any order, often, and may be cancelled mid-way. Code that assumes a composable runs 'once' or 'exactly when the user pressed the button' is wrong; the only contract is 'the body returns the latest projection of inputs to UI'."
+domain: android-compose
+content_hash: "sha256:8b2478c14368c20c68ab2e0811b351c6b29acbc412d89112152285b2bddeae83"
+tokens:
+  summary: 221
+  core: 389
+  full: 389
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@android-compose/principle-state-driven-ui" }
+  - { type: related, target: "@android-compose/rule-avoid-recomposition-via-remember" }
+  - { type: related, target: "@android-compose/rule-no-side-effects-in-composables" }
+  - { type: related, target: "@android-compose/rule-prefer-stable-keys-in-lazy-column" }
+created_at: "2026-05-10"

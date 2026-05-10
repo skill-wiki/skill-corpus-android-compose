@@ -1,0 +1,134 @@
+# skill-corpus-android-compose/domain.yaml
+#
+# Domain configuration for the Jetpack Compose + Material 3 corpus.
+# Drop this file in the corpus directory and Prime will load it at
+# startup — no code changes required.
+#
+# Schema reference: spec/DOMAIN-EXTENSION-SPEC.md
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: android-compose
+version: "0.1.0"
+description: >
+  Domain plugin for Jetpack Compose component API guidance and Material 3
+  design tokens. Covers composable function shape, state hoisting,
+  modifiers, slot APIs, recomposition discipline, lazy lists, Material 3
+  color/typography/elevation/motion tokens, accessibility, and adaptive
+  layout patterns.
+
+# ─── Tag Vocabulary ───────────────────────────────────────────────────────────
+#
+# Words that appear in a user's brief and signal this domain.
+#
+tags:
+  - android
+  - compose
+  - jetpack-compose
+  - kotlin
+  - material3
+  - material-design
+  - composable
+  - modifier
+  - state-hoisting
+  - recomposition
+  - remember
+  - slot-api
+  - lazy-column
+  - lazy-row
+  - window-size-class
+  - edge-to-edge
+  - predictive-back
+  - touch-target
+  - content-description
+  - semantics
+  - color-role
+  - typography
+  - elevation
+  - motion
+  - mobile-ui
+
+# ─── Retrieval Axes ───────────────────────────────────────────────────────────
+#
+# Domain-specific dimensions of a brief. Atoms tagged on these axes score
+# higher when the brief mentions the matching terms.
+#
+axes:
+  - name: layer
+    description: >
+      The architectural layer the atom addresses — function shape, state
+      management, layout, theming, or accessibility.
+    matches:
+      - composable-api
+      - state
+      - layout
+      - theming
+      - tokens
+      - performance
+      - navigation
+
+  - name: surface
+    description: >
+      The Compose surface or component family the atom applies to.
+    matches:
+      - foundation
+      - material3
+      - lazy-list
+      - text
+      - button
+      - container
+      - scaffold
+      - navigation
+
+  - name: accessibility-class
+    description: >
+      The accessibility concern the atom addresses, mapped to platform a11y
+      requirements (TalkBack, motor accessibility, visibility).
+    matches:
+      - touch-target
+      - screen-reader
+      - semantics
+      - contrast
+      - motion-reduce
+      - focus-order
+
+# ─── Composition Contract ─────────────────────────────────────────────────────
+#
+# Domain-specific fields that can appear in a retrieval call's contract block.
+# Every domain implicitly also has must_include and must_avoid.
+#
+contract:
+  enforcement_level:
+    type: enum
+    values:
+      - error
+      - warning
+      - suggestion
+    description: >
+      Minimum enforcement tier for rule atoms in the retrieved set.
+
+  target_platform:
+    type: enum
+    values:
+      - phone
+      - tablet
+      - foldable
+      - tv
+      - wear
+      - any
+    description: >
+      The form factor the guidance should apply to. Atoms targeting an
+      incompatible surface are demoted in ranking.
+
+# ─── Output Validators ────────────────────────────────────────────────────────
+validators:
+  - name: rule-has-checks
+    description: >
+      Every rule atom must have a non-empty checks field that provides
+      concrete, verifiable conditions. A rule without checks is not actionable.
+    checker: builtin:rule-has-checks
+
+  - name: anti-pattern-has-counterpart
+    description: >
+      Every anti-pattern atom should have at least one related rule or
+      pattern atom that provides the recommended alternative.
+    checker: builtin:anti-pattern-has-counterpart

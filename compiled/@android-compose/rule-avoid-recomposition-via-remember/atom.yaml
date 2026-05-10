@@ -1,0 +1,21 @@
+id: "@android-compose/rule-avoid-recomposition-via-remember"
+kind: rule
+version: "0.1.0"
+description: "A composable's body re-runs on every recomposition. Anything allocated or computed at the top level of the body — a parser, a Regex, a sorted list, a formatted string — runs every recomposition unless wrapped in `remember`. Pure observable derivations should use `derivedStateOf`, which only emits when its result changes (skipping recompositions whose inputs change but whose output does not). Remember keys must be the inputs that, when changed, require recomputation."
+domain: android-compose
+content_hash: "sha256:d3b0916a2c483b0319e50fd73b3a49a975871a396ca4fbae346e0df183f8c94d"
+tokens:
+  summary: 135
+  core: 289
+  full: 312
+projection:
+  summary: "chunks/summary.md"
+  core: "chunks/core.md"
+  full: "chunks/full.md"
+quality:
+  overall: 4
+relations:
+  - { type: related, target: "@android-compose/rule-prefer-stable-keys-in-lazy-column" }
+  - { type: related, target: "@android-compose/rule-no-side-effects-in-composables" }
+  - { type: related, target: "@android-compose/principle-recomposition-as-source-of-truth" }
+created_at: "2026-05-10"

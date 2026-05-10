@@ -1,0 +1,32 @@
+// Source: AndroidX Compose Component API Guidelines (Apache-2.0)
+// https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-component-api-guidelines.md
+
+rule SingleSourceOfTruth {
+  id: "@android-compose/rule-single-source-of-truth"
+  version: "0.1.0"
+
+  label: "Each piece of state has exactly one owner; UI reads, never duplicates"
+  domain: android-compose
+
+  description: "Every value that drives the UI lives in exactly one place — a ViewModel, a remembered state holder, or a state-hoisted parameter. Composables read it and emit it. They do NOT copy it into a second `remember { mutableStateOf(...) }` they then keep in sync with the original via LaunchedEffect. Two copies of the same fact will drift the moment the synchronisation code has a bug, and you cannot tell which is correct."
+
+  checks: [
+    "No `LaunchedEffect(externalValue) { internalState = externalValue }` patterns — that is a duplicated source of truth.",
+    "Forms read directly from the ViewModel state object; they do not snapshot it into a local copy at composition time.",
+    "When a composable needs a derived value from another value, use `derivedStateOf` or compute it directly — do not store the derived result.",
+    "Selection, scroll, and focus state belong to a hoisted state holder (e.g. `LazyListState`, `TextFieldState`), used by both reader and writer.",
+  ]
+
+  tags: [state, single-source-of-truth, composable-api]
+
+  notes: [
+    "If a `remember` and a parameter share a name, you almost certainly have two sources of truth.",
+    "ViewModels, remembered state holders, and Saver-backed state are valid owners; transient `remember` inside a leaf composable is fine when the state has no observers outside.",
+  ]
+
+  related: [
+    @android-compose/rule-hoist-state-up,
+    @android-compose/principle-state-driven-ui,
+    @android-compose/anti-pattern-side-effects-in-composables,
+  ]
+}

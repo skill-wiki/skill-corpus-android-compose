@@ -1,0 +1,14 @@
+<atom
+  id="@android-compose/rule-avoid-recomposition-via-remember"
+  kind="rule"
+  version="0.1.0"
+  domain="android-compose"
+  tokens="289"
+  q="4.0">
+  <description>A composable&apos;s body re-runs on every recomposition. Anything allocated or computed at the top level of the body — a parser, a Regex, a sorted list, a formatted string — runs every recomposition unless wrapped in `remember`. Pure observable derivations should use `derivedStateOf`, which only emits when its result changes (skipping recompositions whose inputs change but whose output does not). Remember keys must be the inputs that, when changed, require recomputation.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="135"/>
+    <level name="core"    file="chunks/core.md"    tokens="289"/>
+    <level name="full"    file="chunks/full.md"    tokens="312"/>
+  </projection>
+</atom>

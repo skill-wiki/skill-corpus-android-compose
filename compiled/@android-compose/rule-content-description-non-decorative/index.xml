@@ -1,0 +1,14 @@
+<atom
+  id="@android-compose/rule-content-description-non-decorative"
+  kind="rule"
+  version="0.1.0"
+  domain="android-compose"
+  tokens="325"
+  q="4.0">
+  <description>TalkBack reads `contentDescription` aloud when focusing an image or icon. Every non-decorative visual that conveys information OR is the only label for an action must have a non-empty `contentDescription`. Purely decorative visuals (a divider flourish, a background pattern) must pass `contentDescription = null` so TalkBack skips them and does not read meaningless &apos;image&apos; announcements. The choice is binary and required: passing the default `&quot;&quot;` (empty string) is a bug.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="137"/>
+    <level name="core"    file="chunks/core.md"    tokens="325"/>
+    <level name="full"    file="chunks/full.md"    tokens="347"/>
+  </projection>
+</atom>

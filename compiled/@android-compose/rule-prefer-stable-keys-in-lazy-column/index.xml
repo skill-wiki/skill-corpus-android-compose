@@ -1,0 +1,14 @@
+<atom
+  id="@android-compose/rule-prefer-stable-keys-in-lazy-column"
+  kind="rule"
+  version="0.1.0"
+  domain="android-compose"
+  tokens="270"
+  q="4.0">
+  <description>`LazyColumn`, `LazyRow`, and `LazyVerticalGrid` use the `key` parameter on each item to identify it across recompositions. Without a key, Compose falls back to position — which means inserting at the head re-keys every following item, animations break, scroll position drifts, and per-item state (like a remembered expand flag) jumps to the wrong row. Pass a `key = { item -&gt; item.id }` whose value is stable for the lifetime of that item.</description>
+  <projection>
+    <level name="summary" file="chunks/summary.md" tokens="127"/>
+    <level name="core"    file="chunks/core.md"    tokens="270"/>
+    <level name="full"    file="chunks/full.md"    tokens="286"/>
+  </projection>
+</atom>

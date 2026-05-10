@@ -1,0 +1,41 @@
+// Source: AndroidX Compose API Guidelines — Side Effects (Apache-2.0)
+// https://developer.android.com/develop/ui/compose/side-effects
+
+anti-pattern SideEffectsInComposables {
+  id: "@android-compose/anti-pattern-side-effects-in-composables"
+  version: "0.1.0"
+
+  label: "Calling viewModel.load(), launching coroutines, or mutating state directly in a composable body"
+  domain: android-compose
+
+  description: "Putting impure work — `viewModel.fetchUser()`, `analytics.log(\"viewed\")`, `scope.launch { ... }`, or `someState.value = computed` — at the top level of a @Composable function, where it executes on every recomposition rather than inside a controlled effect API."
+
+  why-bad: "The Compose runtime calls a composable's body whenever any state it reads changes. During a single user interaction (typing, scrolling, animating) that can be hundreds of times. Each call re-fires the side effect: hundreds of network requests, hundreds of analytics events, ViewModel state churning in a feedback loop. Worse, the runtime can abort a composition mid-way; work started at the top level may run for a frame that is never displayed. The cumulative result is wasted bandwidth, duplicated rows in analytics, lost write ordering, and bugs that only reproduce under specific recomposition patterns."
+
+  instead-do: """
+    Move every side effect into the appropriate effect API:
+
+      - One-shot work bound to a key:
+            LaunchedEffect(userId) { vm.load(userId) }
+      - Resources with cleanup:
+            DisposableEffect(owner) { register(); onDispose { unregister() } }
+      - Sync Compose state to a non-Compose system:
+            SideEffect { Firebase.analytics.setUserProperty(...) }
+      - Trigger from user events (clicks):
+            val scope = rememberCoroutineScope()
+            Button(onClick = { scope.launch { vm.save() } }) { ... }
+
+    The composable body itself stays pure: read state, emit UI, return Unit.
+  """
+
+  notes: [
+    "If you wrote `LaunchedEffect(Unit) { ... }` to make the warning go away but the work runs on every recomposition anyway, your key is wrong — `Unit` only fires once per instance, but a logic bug elsewhere may be recreating the composable.",
+    "`viewModel()` is itself fine to call from a composable; what matters is what you DO with the returned ViewModel.",
+  ]
+
+  related: [
+    @android-compose/rule-no-side-effects-in-composables,
+    @android-compose/rule-avoid-recomposition-via-remember,
+    @android-compose/principle-recomposition-as-source-of-truth,
+  ]
+}

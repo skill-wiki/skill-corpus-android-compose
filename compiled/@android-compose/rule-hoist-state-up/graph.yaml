@@ -1,0 +1,10 @@
+atom: "@android-compose/rule-hoist-state-up"
+relations:
+  - type: related
+    target: "@android-compose/rule-single-source-of-truth"
+  - type: related
+    target: "@android-compose/rule-composable-annotation-not-raw-fn"
+  - type: related
+    target: "@android-compose/principle-state-driven-ui"
+  - type: related
+    target: "@android-compose/principle-recomposition-as-source-of-truth"

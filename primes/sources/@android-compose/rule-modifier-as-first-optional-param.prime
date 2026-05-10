@@ -1,0 +1,31 @@
+// Source: AndroidX Compose Component API Guidelines (Apache-2.0)
+// https://github.com/androidx/androidx/blob/androidx-main/compose/docs/compose-component-api-guidelines.md#modifier-parameter
+
+rule ModifierAsFirstOptionalParam {
+  id: "@android-compose/rule-modifier-as-first-optional-param"
+  version: "0.1.0"
+
+  label: "`modifier: Modifier = Modifier` is the first optional parameter"
+  domain: android-compose
+
+  description: "Every component composable that emits layout exposes a `modifier: Modifier = Modifier` parameter. It comes after all required parameters and before all other optional ones. The modifier is applied to the ROOT element of the component's emitted layout — never to an inner child. This convention lets the caller adjust size, padding, click behaviour, semantics, or test tags from the outside without the component having to anticipate every possible adjustment."
+
+  checks: [
+    "Signature ends like: `Component(required1, required2, modifier: Modifier = Modifier, optionalA = ..., optionalB = ...)`.",
+    "`modifier` defaults to `Modifier` (the empty modifier), never to a non-empty value with built-in padding or size.",
+    "Internally, the modifier is forwarded to the outermost layout: `Box(modifier = modifier) { ... }`. Inner padding uses `Modifier.padding(...)` chained AFTER, e.g. `Box(modifier.padding(8.dp))`.",
+    "Components do not accept multiple modifier parameters; if an inner element needs styling, expose a slot or a typed parameter, not a second Modifier.",
+  ]
+
+  tags: [composable-api, modifier, conventions]
+
+  notes: [
+    "The single-Modifier rule keeps composability predictable: callers chain modifiers left-to-right and know exactly what the chain applies to.",
+    "If you're tempted to add `contentModifier` or `iconModifier`, that's a signal to use a slot API instead so the caller fully owns the inner content.",
+  ]
+
+  related: [
+    @android-compose/rule-slot-content-via-composable-lambda,
+    @android-compose/rule-composable-annotation-not-raw-fn,
+  ]
+}
